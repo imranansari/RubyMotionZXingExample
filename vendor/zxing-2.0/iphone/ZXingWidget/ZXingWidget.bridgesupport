@@ -1,0 +1,410 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<enum name='BarcodeFormat_CODE_128' value='7'/>
+<enum name='BarcodeFormat_CODE_39' value='8'/>
+<enum name='BarcodeFormat_DATA_MATRIX' value='2'/>
+<enum name='BarcodeFormat_EAN_13' value='6'/>
+<enum name='BarcodeFormat_EAN_8' value='5'/>
+<enum name='BarcodeFormat_ITF' value='9'/>
+<enum name='BarcodeFormat_None' value='0'/>
+<enum name='BarcodeFormat_QR_CODE' value='1'/>
+<enum name='BarcodeFormat_UPC_A' value='4'/>
+<enum name='BarcodeFormat_UPC_E' value='3'/>
+<enum name='HAS_AVFF' value='1'/>
+<function name='ForceArrayAndStringCategoriesToLoad'>
+<retval declared_type='void' type='v'/>
+</function>
+<class name='DataMatrixReader'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='Decoder'>
+<method selector='cropRect'>
+<retval declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</method>
+<method selector='decodeImage:'>
+<arg name='image' declared_type='id' type='@' index='0'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='decodeImage:cropRect:'>
+<arg name='image' declared_type='id' type='@' index='0'/>
+<arg name='cropRect' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' index='1'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='image'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='readers'>
+<retval declared_type='NSSet*' type='@'/>
+</method>
+<method selector='resultPointCallback:'>
+<arg name='point' declared_type='CGPoint' type='{CGPoint=ff}' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCropRect:'>
+<arg name='cropRect' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg name='delegate' declared_type='id' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImage:'>
+<arg name='image' declared_type='int*' type='^i' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setReaders:'>
+<arg name='readers' declared_type='NSSet*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubsetBytesPerRow:'>
+<arg name='subsetBytesPerRow' declared_type='size_t' type='L' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubsetData:'>
+<arg name='subsetData' declared_type='unsigned char*' type='*' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubsetHeight:'>
+<arg name='subsetHeight' declared_type='size_t' type='L' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubsetImage:'>
+<arg name='subsetImage' declared_type='int*' type='^i' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubsetWidth:'>
+<arg name='subsetWidth' declared_type='size_t' type='L' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='subsetBytesPerRow'>
+<retval declared_type='size_t' type='L'/>
+</method>
+<method selector='subsetData'>
+<retval declared_type='unsigned char*' type='*'/>
+</method>
+<method selector='subsetHeight'>
+<retval declared_type='size_t' type='L'/>
+</method>
+<method selector='subsetImage'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='subsetWidth'>
+<retval declared_type='size_t' type='L'/>
+</method>
+</class>
+<class name='FormatReader'>
+<method selector='decode:'>
+<arg name='grayImage' declared_type='id' type='@' index='0'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='decode:andCallback:'>
+<arg name='grayImage' declared_type='id' type='@' index='0'/>
+<arg name='callback' declared_type='id' type='@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithReader:'>
+<arg name='reader' declared_type='id' type='@' index='0'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='registerFormatReader:' class_method='true'>
+<arg name='formatReader' declared_type='FormatReader*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='MultiFormatOneDReader'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='MultiFormatUPCEANReader'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='NSArray'>
+<method selector='arrayWithStringIfNotNil:' class_method='true'>
+<arg name='string' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='stringArrayWithTrimmedWhitespace'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='cancelled'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='decoder:didDecodeImage:usingSubset:withResult:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<arg name='result' declared_type='TwoDDecoderResult*' type='@' index='3'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='decoder:failedToDecodeImage:usingSubset:reason:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<arg name='reason' declared_type='NSString*' type='@' index='3'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='decoder:foundPossibleResultPoint:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='point' declared_type='CGPoint' type='{CGPoint=ff}' index='1'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='decoder:willDecodeImage:usingSubset:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='zxingController:didScanResult:'>
+<arg name='controller' declared_type='ZXingWidgetController*' type='@' index='0'/>
+<arg name='result' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='zxingControllerDidCancel:'>
+<arg name='controller' declared_type='ZXingWidgetController*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='NSString'>
+<method selector='backslashUnescaped'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='fieldWithPrefix:'>
+<arg name='prefix' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='fieldWithPrefix:terminator:'>
+<arg name='prefix' declared_type='NSString*' type='@' index='0'/>
+<arg name='term' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='fieldsWithPrefix:'>
+<arg name='prefix' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='fieldsWithPrefix:terminator:'>
+<arg name='prefix' declared_type='NSString*' type='@' index='0'/>
+<arg name='term' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='htmlEscapedString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='htmlEscapes' class_method='true'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='htmlUnescapedString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='htmlUnescapes' class_method='true'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='stringWithTrimmedWhitespace'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='OverlayView'>
+<method selector='cropRect'>
+<retval declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='displayedMessage'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithFrame:cancelEnabled:oneDMode:'>
+<arg name='theFrame' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' index='0'/>
+<arg name='isCancelEnabled' declared_type='BOOL' type='B' index='1'/>
+<arg name='isOneDModeEnabled' declared_type='BOOL' type='B' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='oneDMode'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='points'>
+<retval declared_type='NSMutableArray*' type='@'/>
+</method>
+<method selector='setCropRect:'>
+<arg name='cropRect' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg name='delegate' declared_type='id' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDisplayedMessage:'>
+<arg name='displayedMessage' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setOneDMode:'>
+<arg name='oneDMode' declared_type='BOOL' type='B' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPoint:'>
+<arg name='point' declared_type='CGPoint' type='{CGPoint=ff}' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPoints:'>
+<arg name='points' declared_type='NSMutableArray*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='QRCodeReader'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='TwoDDecoderResult'>
+<method selector='copy'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='copyWithZone:'>
+<arg name='zone' declared_type='NSZone*' type='^{_NSZone=}' index='0'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithText:points:'>
+<arg name='text' declared_type='NSString*' type='@' index='0'/>
+<arg name='points' declared_type='NSArray*' type='@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='points'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='resultWithText:points:' class_method='true'>
+<arg name='text' declared_type='NSString*' type='@' index='0'/>
+<arg name='points' declared_type='NSArray*' type='@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setPoints:'>
+<arg name='points' declared_type='NSArray*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setText:'>
+<arg name='text' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='text'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='ZXingWidgetController'>
+<method selector='captureSession'>
+<retval declared_type='AVCaptureSession*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='fixedFocus'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='initWithDelegate:showCancel:OneDMode:'>
+<arg name='delegate' declared_type='id' type='@' index='0'/>
+<arg name='shouldShowCancel' declared_type='BOOL' type='B' index='1'/>
+<arg name='shouldUseoOneDMode' declared_type='BOOL' type='B' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='overlayView'>
+<retval declared_type='OverlayView*' type='@'/>
+</method>
+<method selector='prevLayer'>
+<retval declared_type='AVCaptureVideoPreviewLayer*' type='@'/>
+</method>
+<method selector='readers'>
+<retval declared_type='NSSet*' type='@'/>
+</method>
+<method selector='result'>
+<retval declared_type='ParsedResult*' type='@'/>
+</method>
+<method selector='setCaptureSession:'>
+<arg name='captureSession' declared_type='AVCaptureSession*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg name='delegate' declared_type='id' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setOverlayView:'>
+<arg name='overlayView' declared_type='OverlayView*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPrevLayer:'>
+<arg name='prevLayer' declared_type='AVCaptureVideoPreviewLayer*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setReaders:'>
+<arg name='readers' declared_type='NSSet*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setResult:'>
+<arg name='result' declared_type='ParsedResult*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSoundToPlay:'>
+<arg name='soundToPlay' declared_type='NSURL*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTorch:'>
+<arg name='status' declared_type='BOOL' type='B' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='soundToPlay'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='torchIsOn'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</class>
+<informal_protocol name='CancelDelegate'>
+<method type='v8@0:4' selector='cancelled'>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='DecoderDelegate'>
+<method type='v24@0:4@8@12@16@20' selector='decoder:didDecodeImage:usingSubset:withResult:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<arg name='result' declared_type='TwoDDecoderResult*' type='@' index='3'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v24@0:4@8@12@16@20' selector='decoder:failedToDecodeImage:usingSubset:reason:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<arg name='reason' declared_type='NSString*' type='@' index='3'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8{CGPoint=ff}12' selector='decoder:foundPossibleResultPoint:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='point' declared_type='CGPoint' type='{CGPoint=ff}' index='1'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8@12@16' selector='decoder:willDecodeImage:usingSubset:'>
+<arg name='decoder' declared_type='Decoder*' type='@' index='0'/>
+<arg name='image' declared_type='id' type='@' index='1'/>
+<arg name='subset' declared_type='id' type='@' index='2'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='ZXingDelegate'>
+<method type='v16@0:4@8@12' selector='zxingController:didScanResult:'>
+<arg name='controller' declared_type='ZXingWidgetController*' type='@' index='0'/>
+<arg name='result' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v12@0:4@8' selector='zxingControllerDidCancel:'>
+<arg name='controller' declared_type='ZXingWidgetController*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+</signatures>
