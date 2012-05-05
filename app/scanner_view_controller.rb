@@ -9,11 +9,11 @@ class ScannerViewController < UIViewController
   end
   
   def create_result_label
-    label = UILabel.alloc.initWithFrame([[10, 90], [300,50]])
+    label = UILabel.alloc.initWithFrame([[10, 90], [300,200]])
     label.text = "No codes have been scanned."
+    label.numberOfLines = 8
     label.backgroundColor = UIColor.clearColor
     label.textColor = UIColor.whiteColor
-    label.adjustsFontSizeToFitWidth = true
     label.textAlignment = UITextAlignmentCenter
     label
   end
